@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'navbar.html' %}
+
+<div class="container center-align">
+    <ul class="collection">
+        <li class="collection-item"><h5>Welcome to Admin Panel</h5></li>
+      </ul>    
+</div>
+<div class="container center-align">
+    <ul class="collection">
+        <li class="collection-item"><h6>List of Users</h6></li>
+      </ul>    
+</div>
+
+
+<div class="container">
+    <ul class="collapsible">
+        {% for user in users %}    
+        <li>
+          <div class="collapsible-header"><h6> <strong>User Name :</strong>  {{ user.username }}</h6></div>
+          <div class="collapsible-body">
+             <p> <strong>First Name :</strong>  {{ user.first_name }}</p>
+             <p><strong>Last Name :</strong> {{ user.last_name }}</p> 
+             <a href="{% url 'delete' pk=user.pk %}">Delete User</a>
+          </div>
+        </li>
+        {% endfor %}    
+    </ul>
+
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.collapsible');
+        var instances = M.Collapsible.init(elems);
+    });
+
+</script>
+
+
+{% endblock %}
+
+

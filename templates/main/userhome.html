@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'navbar.html' %}
+
+<div style="padding-top: 5%;">
+    <div class="container center-align">
+        <ul class="collection">
+            <li class="collection-item"><h5>Welcome User</h5></li>
+          </ul>    
+    </div>
+    <div class="container center-align">
+        <ul class="collection">
+            <li class="collection-item"><h6>Only admin have rights to change the details.</h6></li>
+            <li class="collection-item"><h6>Your Profile Details</h6></li>
+            
+          </ul>    
+    </div>
+    
+    <div class="container center-align">
+        <div class="collection">
+            <a href="#!" class="collection-item"> <strong>User Name :</strong> {{ user.username }} </a>
+            <a href="#!" class="collection-item"> <strong>First Name :</strong> {{ user.first_name }} </a>
+            <a href="#!" class="collection-item"> <strong>Last Name :</strong> {{ user.last_name }} </a>
+            
+          </div>
+    </div>
+    
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'navbar.html' %}
+
+<div class="container" style="margin-top: 10%;">
+    <div class="container center-align">
+        <div class="row grey lighten-4" style="margin-top: 2%; border-radius: 5%; padding: 2%;" >
+            <h4>Login</h4>
+            <div class="container">
+                {% if error %}
+                    <div>
+                        <h6>{{error}}</h6>
+                    </div>
+                {% endif %}
+                <form action="" method="POST" >
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="row">
+                        <div class="input-field col s12">
+                            {{field}}
+                        </div>
+                    </div>
+                    {% endfor %}
+    
+                    
+                    <button type="submit" class="btn waves-effect waves-light grey darken-1" name="button1">Admin Login</button>
+                    <button type="submit" class="btn waves-effect waves-light grey darken-1" name="button2">User Login</button>
+                    <a href="{% url 'signup' %}" class="btn waves-effect waves-light grey darken-1">Create Account</a>        
+                </form>
+            </div>
+                
+        </div>
+        
+    </div>
+    
+</div>
+
+
+{% endblock %}
